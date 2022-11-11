@@ -1,25 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import * as React from "react";
+import { Admin, Resource } from "react-admin";
+import { strapiRestProvider } from "ra-strapi-v4-rest";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import organizations from "./organizations";
+
+import URL from './URL';
+
+const App = () => (
+    <Admin dataProvider={strapiRestProvider(URL)}>
+        <Resource name="organizations" {...organizations} />
+    </Admin>
+);
 
 export default App;
