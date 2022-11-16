@@ -22,7 +22,6 @@ const OrganizationList = () => {
             <Datagrid
             >
                 <DateField source="createdAt" />
-                <TextField source="id" />
                 <TextField source="name" />
             </Datagrid>
         </List>
