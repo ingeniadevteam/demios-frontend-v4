@@ -1,33 +1,15 @@
 import * as React from "react";
-import { fetchUtils, Admin, Resource } from "react-admin";
-import { strapiRestProvider } from "ra-strapi-v4-rest";
-import authProvider from './authProvider';
-import Cookies from "./helpers/Cookies";
-import organizations from "./organizations";
-
-import URL from './URL';
-
-
-const httpClient = (url, options = {}) => {
-    if (!options.headers) {
-        options.headers = new Headers({ Accept: 'application/json' });
-    }
-    try {
-        // const { token } = JSON.parse(localStorage.getItem('token'));
-        const token = Cookies.getCookie('token');
-        options.headers.set('Authorization', `Bearer ${token}`);
-    } catch (error) {}
-    
-    return fetchUtils.fetchJson(url, options);
-};
-
-const dataProvider = strapiRestProvider(URL, httpClient);
-
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Login from './layout/Login';
+import Layout from './layout';
 
 const App = () => (
-    <Admin dataProvider={dataProvider}  authProvider={authProvider}>
-        <Resource name="organizations" {...organizations} />
-    </Admin>
+    <BrowserRouter>
+        <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="/*" element={<Layout />} />
+        </Routes>
+    </BrowserRouter>
 );
 
 export default App;
