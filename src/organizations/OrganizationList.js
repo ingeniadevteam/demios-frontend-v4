@@ -23,6 +23,7 @@ const OrganizationList = () => {
             >
                 <DateField source="createdAt" />
                 <TextField source="name" />
+                <TextField source="office" />
             </Datagrid>
         </List>
     );

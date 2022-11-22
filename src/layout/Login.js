@@ -1,7 +1,6 @@
 import { React, useEffect } from 'react';
 import { useState } from 'react';
 import { useLocation } from "react-router-dom";
-import { resolveBrowserLocale } from 'react-admin';
 import {
     Avatar,
     Button,
@@ -12,41 +11,35 @@ import {
 import LockIcon from '@mui/icons-material/Lock';
 import {
     Form,
-    required,
     TextInput,
     fetchUtils,
     useNotify,
-    Notification,
-    useRedirect,
-    useTranslate
+    useRedirect
 } from 'react-admin';
 import Box from '@mui/material/Box';
+import Link from '@mui/material/Link';
 
+import { i18nProvider } from '../providers/i18nProvider';
 import Cookies from '../helpers/Cookies';
 import URL from '../URL';
 
-const i18n = {
-    es: {
-        tip: 'Accede con tu email'
-    },
-    en: {
-        tip: 'Login with your email'
-    }
-}
-
 
 const Login = ({ theme }) => {
+    const { translate } = i18nProvider;
     const [email, setEmail] = useState('');
+    const [notified, setNotified] = useState(false);
     const notify = useNotify();
     const search = useLocation().search;
     const loginToken = new URLSearchParams(search).get('loginToken');
     const redirectTo = useRedirect();
-    const translate = useTranslate();
-    const locale = resolveBrowserLocale();
     let loading = false;
+
+    const required = (message = translate('ra.validation.required')) =>
+        value => value ? undefined : message;
 
     useEffect(() => {
         if (loginToken && !loading) {
+            // eslint-disable-next-line
             loading = true;
             
             // get user using passwordless login
@@ -102,7 +95,8 @@ const Login = ({ theme }) => {
         };
 
         fetchUtils.fetchJson(`${URL}/passwordless/send-link`, options)
-        .then(result => {
+        .then(() => {
+            setNotified(true);
             notify(`Please check your email for a login link`, {
                 type: 'success',
                 autoHideDuration: 5000
@@ -127,6 +121,7 @@ const Login = ({ theme }) => {
                         'url(https://source.unsplash.com/random/1600x900)',
                     backgroundRepeat: 'no-repeat',
                     backgroundSize: 'cover',
+                    fontFamily: 'Arial'
                 }}
             >
                 <Card sx={{ minWidth: 300, marginTop: '6em' }}>
@@ -141,43 +136,75 @@ const Login = ({ theme }) => {
                             <LockIcon />
                         </Avatar>
                     </Box>
-                    <Box
-                        sx={{
-                            marginTop: '1em',
-                            display: 'flex',
-                            justifyContent: 'center',
-                            color: theme => theme.palette.grey[500],
-                        }}
-                    >
-                        {i18n[locale].tip}
-                    </Box>
-                    <Box sx={{ padding: '0 1em 1em 1em' }}>
-                        <Box sx={{ marginTop: '1em' }}>
-                            <TextInput
-                                autoFocus
-                                source="username"
-                                label="Email"
-                                disabled={loading}
-                                validate={required()}
-                                onChange={e => setEmail(e.target.value)}
-                                fullWidth
-                            />
-                        </Box>
-                    </Box>
-                    <CardActions sx={{ padding: '0 1em 1em 1em' }}>
-                        <Button
-                            variant="contained"
-                            type="submit"
-                            color="primary"
-                            disabled={loading}
-                            fullWidth
+                    {
+                        notified ? 
+                        <Box
+                            sx={{
+                                margin: '1em',
+                                display: 'flex',
+                                justifyContent: 'center',
+                                color: theme => theme.palette.grey[500],
+                                fontSize: '1.2em'
+                            }}
                         >
-                            {loading && (
-                                <CircularProgress size={25} thickness={2} />
-                            )}
-                            Login
-                        </Button>
-                    </CardActions>
+                            { translate('pos.notified') }
+                        </Box> : 
+                        <>
+                            <Box
+                                sx={{
+                                    marginTop: '1em',
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    color: theme => theme.palette.grey[500],
+                                }}
+                            >
+                                { translate('pos.tip') }
+                            </Box>
+                            <Box
+                                sx={{
+                                    marginTop: '1em',
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    textDecoration: 'none'
+                                }}
+                            >
+                                <Link
+                                    href="/signup"
+                                    sx={{ textDecoration: 'none' }}
+                                >
+                                    { translate('pos.signup') }
+                                </Link>
+                            </Box>
+                            <Box sx={{ padding: '0 1em 1em 1em' }}>
+                                <Box sx={{ marginTop: '1em' }}>
+                                    <TextInput
+                                        autoFocus
+                                        source="username"
+                                        type="email"
+                                        label={ translate('pos.email') }
+                                        disabled={loading}
+                                        validate={required()}
+                                        onChange={e => setEmail(e.target.value)}
+                                        fullWidth
+                                    />
+                                </Box>
+                            </Box>
+                            <CardActions sx={{ padding: '0 1em 1em 1em' }}>
+                                <Button
+                                    variant="contained"
+                                    type="submit"
+                                    color="primary"
+                                    disabled={loading}
+                                    fullWidth
+                                >
+                                    {loading && (
+                                        <CircularProgress size={25} thickness={2} />
+                                    )}
+                                    { translate('pos.login') }
+                                </Button>
+                            </CardActions>
+                        </>
+                    }
                 </Card>
             </Box>
         </Form>
