@@ -1,10 +1,11 @@
-import CategoryIcon from '@mui/icons-material/Category';
-
+import OrganizationIcon from '@mui/icons-material/Collections';
 import OrganizationList from './OrganizationList';
-// import OrganizationEdit from './OrganizationEdit';
+import OrganizationEdit from './OrganizationEdit';
 
-export default {
+const organizations = {
     list: OrganizationList,
-    // edit: OrganizationEdit,
-    icon: CategoryIcon,
+    edit: OrganizationEdit,
+    icon: OrganizationIcon,
 };
+
+export default organizations;

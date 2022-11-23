@@ -22,13 +22,13 @@ import {
     TextField
 } from 'react-admin';
 
-const OrganizationList = () => {
+const UserList = () => {
     const getResourceLabel = useGetResourceLabel();
     const isSmall = useMediaQuery(theme => theme.breakpoints.down('md'));
     return (
         <ListBase perPage={25} sort={{ field: 'createdAt', order: 'ASC' }}>
-            <Title defaultTitle={getResourceLabel('organizations', 2)} />
-            <FilterContext.Provider value={organizationFilters}>
+            <Title defaultTitle={getResourceLabel('users', 2)} />
+            <FilterContext.Provider value={userFilters}>
                 <ListActions isSmall={isSmall} />
                 {isSmall && (
                     <Box m={1}>
@@ -41,7 +41,7 @@ const OrganizationList = () => {
             >
                 <DateField source="createdAt" />
                 <TextField source="name" />
-                <TextField source="office" />
+                <TextField source="email" />
             </Datagrid>
         </ListBase>
     );
@@ -52,7 +52,7 @@ const OrganizationList = () => {
 //     return <Chip sx={{ mb: 1 }} label={translate(label)} />;
 // };
 
-export const organizationFilters = [
+export const userFilters = [
     <SearchInput source="q" alwaysOn />,
 ];
 
@@ -64,4 +64,4 @@ const ListActions = ({ isSmall }) => (
     </TopToolbar>
 );
 
-export default OrganizationList;
+export default UserList;

@@ -1,10 +1,12 @@
 import * as React from "react";
 import { fetchUtils, Admin, Resource } from "react-admin";
-import { strapiRestProvider } from "ra-strapi-v4-rest";
 import passLessAuthProvider from '../providers/passLessAuthProvider';
 import Cookies from "../helpers/Cookies";
-import organizations from "../organizations";
+import { strapiRestProvider } from "../providers/dataProvider4";
 import { i18nProvider } from '../providers/i18nProvider';
+import organizations from "../organizations";
+import suppliers from '../suppliers';
+import users from '../users';
 
 import URL from '../URL';
 
@@ -31,6 +33,8 @@ const Layout = () => (
         authProvider={passLessAuthProvider}
     >
         <Resource name="organizations" {...organizations} />
+        <Resource name="suppliers" {...suppliers} />
+        <Resource name="users" {...users} />
     </Admin>
 );
 

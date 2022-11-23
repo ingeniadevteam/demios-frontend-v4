@@ -13,11 +13,11 @@ import {
     Form,
     TextInput,
     fetchUtils,
-    useNotify,
     useRedirect
 } from 'react-admin';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
+import Alert from '@mui/material/Alert';
 
 import { i18nProvider } from '../providers/i18nProvider';
 import Cookies from '../helpers/Cookies';
@@ -26,9 +26,12 @@ import URL from '../URL';
 
 const Login = ({ theme }) => {
     const { translate } = i18nProvider;
+    const [alert, setAlert] = useState({
+        message: '',
+        severity: 'success'
+    });
     const [email, setEmail] = useState('');
     const [notified, setNotified] = useState(false);
-    const notify = useNotify();
     const search = useLocation().search;
     const loginToken = new URLSearchParams(search).get('loginToken');
     const redirectTo = useRedirect();
@@ -97,19 +100,21 @@ const Login = ({ theme }) => {
         fetchUtils.fetchJson(`${URL}/passwordless/send-link`, options)
         .then(() => {
             setNotified(true);
-            notify(`Please check your email for a login link`, {
-                type: 'success',
-                autoHideDuration: 5000
-            });
+            // setAlert({ message: translate('pos.registered'), severity: 'success' });
         })
         .catch(error => {
-            console.log('error', error.message);
-            notify(error.message, { type: 'success' });
+            setAlert({ message: translate('pos.emailInvalid'), severity: 'error' });
         });
     };
 
     return !loginToken ? (
         <Form onSubmit={handleSubmit} noValidate>
+            {
+                alert.message && 
+                <Alert severity={alert.severity}>
+                    { alert.message }
+                </Alert>
+            }
             <Box
                 sx={{
                     display: 'flex',

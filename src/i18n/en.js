@@ -31,6 +31,72 @@ const en = {
         },
         emailInvalid: 'Invalid Email',
         registered: 'We hve registered your reuqest. Once verified, ee will send you an email with a login link.'        
+    },
+    roles: {
+        manager: 'Manager',
+        employee: 'Employee',
+        supplier: 'Supplier',
+        authenticated: 'Authenticated',
+        public: 'Public',
+    },
+    resources: {
+        organizations: {
+            name: 'Organización |||| Organizaciones',
+            detail: 'Detail',
+            tabs: {
+                details: 'Details',
+                suppliers: 'Suppliers',
+                invoices: 'Invoices',
+                purchases: 'Purchases',
+                tickets: 'Tickets',
+            },
+            fields: {
+                name: 'Name',
+                office: 'Office',
+                supplierValidators: 'Supplier validators',
+                invoiceValidators: 'Invoice validators',
+            }
+        },
+        suppliers: {
+            name: 'Supplier |||| Suppliers',
+            detail: 'Detail',
+            fields: {
+                createdAt: 'Created',
+                rating: 'Rating',
+                business: 'Company',
+                status: 'Status'
+            },
+            action: {
+                accept: 'Accept',
+                reject: 'Reject'
+            },
+            notification: {
+                approved_success: 'Item updated'
+            },
+            status: {
+                pending: 'Pending',
+                accepted: 'Accepted',
+                rejected: 'Rejected',
+            }
+        },
+        users: {
+            name: 'User |||| Users',
+            detail: 'Detail',
+            fields: {
+                createdAt: 'Created',
+                name: 'Name',
+                email: 'Email',
+                role: 'Rol',
+                supplierValidator: 'Supplier validator'
+            },
+            action: {
+                accept: 'Accept',
+                reject: 'Reject'
+            },
+            notification: {
+                approved_success: 'Item updated'
+            }
+        },
     }
 };
 
