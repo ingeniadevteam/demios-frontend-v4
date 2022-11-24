@@ -1,5 +1,6 @@
 const es = {
     pos: {
+        configuration: 'Configuración',
         email: 'Introduce tu email',
         tip: 'Accede con tu email',
         notified: 'Hemos enviado un enlace de acceso a tu email. Puedes cerrar esta página.',
@@ -28,7 +29,19 @@ const es = {
             creditor: 'Acreedor'
         },
         emailInvalid: 'Por favor, introduce un Email válido',
-        registered: 'Hemos registrado tu solicitud. Una vez validada, recibirás un correo con el enlace de acceso a Demios.'
+        registered: 'Hemos registrado tu solicitud. Una vez validada, recibirás un correo con el enlace de acceso a Demios.',
+        dashboard: {
+            welcome: {
+                title: 'Bienvenido a Demios',
+                subtitle: 'Campos Corporación',
+            },
+            pending_suppliers: 'Nuevos proveedores'
+        },
+        menu: {
+            admon: 'Administración',
+            comm: 'Comunicaciones',
+            conf: 'Configuración',
+        }
     },
     roles: {
         manager: 'Administrador',

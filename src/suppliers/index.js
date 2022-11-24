@@ -1,8 +1,8 @@
-import SupplierIcon from '@mui/icons-material/Comment';
+import BusinessIcon from '@mui/icons-material/Business';
 import SupplierList from './SupplierList';
 
 const suppliers = {
-    icon: SupplierIcon,
+    icon: BusinessIcon,
     list: SupplierList,
 };
 

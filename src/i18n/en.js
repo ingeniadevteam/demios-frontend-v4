@@ -3,6 +3,7 @@ import englishMessages from 'ra-language-english';
 const en = {
     ...englishMessages,
     pos: {
+        configuration: 'Configuration',
         email: 'Enter your email',
         tip: 'Sign up with your email',
         notified: 'We have sent an access link to your email. You can close this page.',
@@ -30,7 +31,19 @@ const en = {
             creditor: 'Creditor'
         },
         emailInvalid: 'Invalid Email',
-        registered: 'We hve registered your reuqest. Once verified, ee will send you an email with a login link.'        
+        registered: 'We hve registered your reuqest. Once verified, ee will send you an email with a login link.',
+        dashboard: {
+            welcome: {
+                title: 'Bienvenido a Demios',
+                subtitle: 'Campos Corporación',
+            },
+            pending_suppliers: 'Pending suppliers'
+        },
+        menu: {
+            admon: 'Administration',
+            comm: 'Communications',
+            conf: 'Configuration',
+        }
     },
     roles: {
         manager: 'Manager',

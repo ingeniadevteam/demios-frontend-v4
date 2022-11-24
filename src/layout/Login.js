@@ -83,7 +83,8 @@ const Login = ({ theme }) => {
                         throw new Error('Get user data failed');
                     })
                     .then(response => {
-                        Cookies.setCookie('role', response.role.name, 1);
+                        console.log(response);
+                        Cookies.setCookie('role', response.role.type, 1);
                         redirectTo('/');
                     });
                 });
