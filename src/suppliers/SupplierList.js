@@ -1,15 +1,15 @@
 import * as React from 'react';
 import { useCallback } from 'react';
-import { List } from 'react-admin';
+import { List, SearchInput, SelectInput, DateInput, useTranslate } from 'react-admin';
 import { matchPath, useLocation, useNavigate } from 'react-router-dom';
 import { Box, Drawer, useMediaQuery } from '@mui/material';
 
 import SupplierListMobile from './SupplierListMobile';
 import SupplierListDesktop from './SupplierListDesktop';
-import supplierFilters from './supplierFilters';
 import SupplierEdit from './SupplierEdit';
 
 const SupplierList = () => {
+    const translate = useTranslate();
     const isXSmall = useMediaQuery(theme =>
         theme.breakpoints.down('sm')
     );
@@ -33,7 +33,19 @@ const SupplierList = () => {
                         }),
                     marginRight: !!match ? '400px' : 0,
                 }}
-                filters={supplierFilters}
+                filters={[
+                    <SearchInput source="name_q" alwaysOn />,
+                    <SelectInput
+                        source="status"
+                        choices={[
+                            { id: 'accepted', name: translate('resources.suppliers.status.accepted') },
+                            { id: 'pending', name: translate('resources.suppliers.status.pending') },
+                            { id: 'rejected', name: translate('resources.suppliers.status.rejected') },
+                        ]}
+                    />,
+                    <DateInput source="createdAt_gte" label="resources.suppliers.fields.createdAt" />,
+                    <DateInput source="createdAt_lte" label="resources.suppliers.fields.createdAt" />,
+                ]}
                 perPage={25}
                 sort={{ field: 'createdAt', order: 'DESC' }}
             >

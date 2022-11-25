@@ -8,7 +8,8 @@ import {
     useRecordContext,
     useTranslate,
     ReferenceInput,
-    AutocompleteInput
+    AutocompleteInput,
+    SelectInput
 } from 'react-admin';
 
 import { SuppliersEditDetails } from './tabs/SuppliersEditDetails';
@@ -36,12 +37,25 @@ const UserEdit = () => {
                     <TextInput source="name" fullWidth validate={req} />
                     <TextInput source="email" fullWidth validate={req} />
                     <ReferenceInput
-                        label="resources.users.fields.role"
+                        reference="organizations"
+                        source="organization.id"
+                    >
+                        <SelectInput
+                            label="resources.users.fields.organization"
+                            optionText="name"
+                            validate={req}
+                            fullWidth
+                        />
+                    </ReferenceInput>
+                    <ReferenceInput
                         reference="users-permissions/roles"
                         source="role.id"  
                     >
                         <AutocompleteInput
+                            label="resources.users.fields.role"
                             optionText={choice => translate(`roles.${choice.type}`)}
+                            validate={req}
+                            fullWidth
                         />
                     </ReferenceInput>
                 </FormTab>

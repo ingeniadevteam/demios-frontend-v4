@@ -99,7 +99,9 @@ const en = {
                 createdAt: 'Created',
                 name: 'Name',
                 email: 'Email',
+                username: 'Email',
                 role: 'Rol',
+                organization: 'Organization',
                 supplierValidator: 'Supplier validator'
             },
             action: {

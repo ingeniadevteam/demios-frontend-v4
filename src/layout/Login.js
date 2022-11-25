@@ -62,7 +62,7 @@ const Login = ({ theme }) => {
             })
             .then(response => {
                 // set JWT
-                Cookies.setCookie('token', response.jwt, 1);
+                Cookies.setCookie('token', response.jwt, 30);
 
                 // get role
                 const request = new Request(`${URL}/users/me?populate=role`, {
@@ -83,8 +83,8 @@ const Login = ({ theme }) => {
                         throw new Error('Get user data failed');
                     })
                     .then(response => {
-                        console.log(response);
-                        Cookies.setCookie('role', response.role.type, 1);
+                        Cookies.setCookie('role', response.role.type, 30);
+                        Cookies.setCookie('user', JSON.stringify(response), 30);
                         redirectTo('/');
                     });
                 });

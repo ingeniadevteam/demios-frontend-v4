@@ -41,7 +41,7 @@ const Dashboard = () => {
         const { data: suppliers } = await dataProvider.getList('suppliers', {
             filter: { status: 'pending' },
             sort: { field: 'createdAt', order: 'DESC' },
-            pagination: { perPage: 0 },
+            pagination: { perPage: 9999 },
         });
         setNbPendingSuppliers(suppliers.reduce(nb => ++nb, 0));
         setPendingSuppliers(suppliers.slice(0, Math.min(10, suppliers.length)));

@@ -122,7 +122,7 @@ const raFilterToStrapi = (raFilter) => {
     if (key.slice(-2) === "_q") {
       const field = key.slice(0, -2);
       filters[field] = {
-        $containsi: raFilter[key],
+        $contains: raFilter[key],
       };
     } else if (key === "id") {
       filters.id = {
@@ -292,7 +292,6 @@ export const strapiRestProvider = (
       rest.data = diffObject(rest.data, rest.previousData);
       rest.data.role = rest.data.role.id;
       rest.data = raEmptyAttributesToStrapi(rest.data)
-      console.log(rest.data);
     }
 
     return httpClient(`${apiUrl}/${resource}/${params.id}`, {

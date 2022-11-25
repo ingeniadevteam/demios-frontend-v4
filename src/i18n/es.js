@@ -105,7 +105,9 @@ const es = {
                 createdAt: 'Creado el',
                 name: 'Nombre',
                 email: 'Email',
+                username: 'Email',
                 role: 'Rol',
+                organization: 'Organización',
                 supplierValidator: 'Validador de proveedores'
             },
             action: {

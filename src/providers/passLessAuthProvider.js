@@ -12,6 +12,7 @@ const authProvider = {
         if (status === 401 || status === 403) {
             Cookies.deleteCookie('token');
             Cookies.deleteCookie('role');
+            Cookies.deleteCookie('user');
             return Promise.reject();
         }
         return Promise.resolve();
@@ -24,6 +25,7 @@ const authProvider = {
     logout: () => {
         Cookies.deleteCookie('token');
         Cookies.deleteCookie('role');
+        Cookies.deleteCookie('user');
         return Promise.resolve();
     },
     // get the user's profile
