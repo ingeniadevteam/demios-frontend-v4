@@ -29,14 +29,11 @@ const httpClient = (url, options = {}) => {
 const dataProvider = strapiRestProvider(URL, httpClient);
 
 
-const DemiosApp = () => {
+const DemiosApp = ({context}) => {
     const role = Cookies.getCookie('role');
-    const user = Cookies.getCookie('user');
+    !role && (document.location.href = '/login');
+    const user = JSON.parse(Cookies.getCookie('user'));
 
-    console.log(role);
-    console.log(JSON.parse(user));
-    
-    
     return (
         <Admin
             i18nProvider={i18nProvider}
@@ -56,7 +53,7 @@ const DemiosApp = () => {
                 <></>
             }
             {
-                role === 'employee' && user.suppliersValidator ? 
+                role === 'employee' && user.supplierValidator ? 
                 <>
                     <Resource name="suppliers" {...suppliers} />
                 </> :
@@ -69,20 +66,3 @@ const DemiosApp = () => {
 
 
 export default DemiosApp;
-
-/*
-        <Admin
-            i18nProvider={i18nProvider}
-            dataProvider={dataProvider}
-            authProvider={passLessAuthProvider}
-        >
-        {   permissions => [
-            permissions.role.type === 'manager' ?
-            <Resource name="organizations" {...organizations} /> :
-            <Resource name="organizations" />,
-
-            <Resource name="suppliers" {...suppliers} />,
-            <Resource name="users" {...users} />
-        ]}
-        </Admin>
-*/
