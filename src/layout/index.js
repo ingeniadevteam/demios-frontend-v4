@@ -1,5 +1,6 @@
 import * as React from "react";
-import { fetchUtils, Admin, Resource } from "react-admin";
+import { fetchUtils, Admin, Resource, CustomRoutes } from "react-admin";
+import { Route } from 'react-router';
 import passLessAuthProvider from '../providers/passLessAuthProvider';
 import Cookies from "../helpers/Cookies";
 import { strapiRestProvider } from "../providers/dataProvider4";
@@ -7,6 +8,7 @@ import { i18nProvider } from '../providers/i18nProvider';
 import { AppLayout } from './Layout';
 import { lightTheme } from './themes';
 import { Dashboard } from '../dashboard';
+import Profile from "../profile/Profile";
 import organizations from "../organizations";
 import suppliers from '../suppliers';
 import users from '../users';
@@ -43,6 +45,11 @@ const DemiosApp = ({context}) => {
             dashboard={Dashboard}
             theme={lightTheme}
         >
+            {
+                <CustomRoutes>
+                    <Route path="/profile" element={<Profile />} />
+                </CustomRoutes>
+            }
             {
                 role === 'manager' ? 
                 <>

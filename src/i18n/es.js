@@ -1,5 +1,7 @@
 const es = {
     pos: {
+        language: 'Idioma',
+        profile: 'Perfil',
         configuration: 'Configuración',
         email: 'Introduce tu email',
         tip: 'Accede con tu email',
@@ -41,6 +43,11 @@ const es = {
             admon: 'Administración',
             comm: 'Comunicaciones',
             conf: 'Configuración',
+        },
+        theme: {
+            name: 'Tema',
+            light: 'Claro',
+            dark: 'Oscuro',
         }
     },
     roles: {

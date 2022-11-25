@@ -21,12 +21,12 @@ const ConfigurationMenu = React.forwardRef((props, ref) => {
             // @ts-ignore
             ref={ref}
             {...props}
-            to="/configuration"
+            to="/profile"
         >
             <ListItemIcon>
                 <SettingsIcon />
             </ListItemIcon>
-            <ListItemText>{translate('pos.configuration')}</ListItemText>
+            <ListItemText>{translate('pos.profile')}</ListItemText>
         </MenuItem>
     );
 });

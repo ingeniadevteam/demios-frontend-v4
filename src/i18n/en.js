@@ -3,6 +3,8 @@ import englishMessages from 'ra-language-english';
 const en = {
     ...englishMessages,
     pos: {
+        language: 'Language',
+        profile: 'Profile',
         configuration: 'Configuration',
         email: 'Enter your email',
         tip: 'Sign up with your email',
@@ -43,6 +45,11 @@ const en = {
             admon: 'Administration',
             comm: 'Communications',
             conf: 'Configuration',
+        },
+        theme: {
+            name: 'Theme',
+            light: 'Light',
+            dark: 'Dark',
         }
     },
     roles: {
@@ -54,7 +61,7 @@ const en = {
     },
     resources: {
         organizations: {
-            name: 'Organización |||| Organizaciones',
+            name: 'Organiztion |||| Organiztions',
             detail: 'Detail',
             tabs: {
                 details: 'Details',
