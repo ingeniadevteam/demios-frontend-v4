@@ -14,6 +14,7 @@ import {
     useRecordContext,
     // useGetManyReference,
     // useTranslate,
+    NumberInput
 } from 'react-admin';
 
 import { SuppliersEditDetails } from './tabs/SuppliersEditDetails';
@@ -37,6 +38,8 @@ const OrganizationEdit = () => (
                 <Organization />
                 <TextInput source="name" fullWidth validate={req} />
                 <TextInput source="office" fullWidth validate={req} />
+                <NumberInput source="nameNumber" validate={req} />
+                <NumberInput source="officeNumber" validate={req} />
             </FormTab>
 
             <FormTab

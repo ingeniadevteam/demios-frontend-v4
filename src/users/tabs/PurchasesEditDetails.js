@@ -1,17 +1,40 @@
 import * as React from 'react';
 import {
-    // ReferenceInput,
-    // required,
-    // TextInput,
+    BooleanInput,
+    useTranslate
 } from 'react-admin';
 import { Grid } from '@mui/material';
 
-export const PurchasesEditDetails = () => (
-    <Grid container columnSpacing={2}>
-        <Grid item xs={12} sm={12}>
-            {/* <TextInput source="name" fullWidth validate={req} /> */}
+export const PurchasesEditDetails = () => {
+    const translate = useTranslate();
+    return (
+        <Grid container columnSpacing={2}>
+            <Grid item xs={12} sm={6}>
+                <small>{translate('resources.users.help.purchaseAdmin')}</small>
+                <BooleanInput
+                    source="purchaseAdmin"
+                    label="resources.users.fields.purchaseAdmin"
+                    fullWidth
+                />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+                <small>{translate('resources.users.help.purchaseAdmonObra')}</small>
+                <BooleanInput
+                    source="purchaseAdmonObra"
+                    label="resources.users.fields.purchaseAdmonObra"
+                    fullWidth
+                />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+                <small>{translate('resources.users.help.foreman')}</small>
+                <BooleanInput
+                    source="foreman"
+                    label="resources.users.fields.foreman"
+                    fullWidth
+                />
+            </Grid>
         </Grid>
-    </Grid>
-);
+    )
+};
 
 // const req = [required()];
