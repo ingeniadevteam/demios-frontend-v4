@@ -36,6 +36,8 @@ const DemiosApp = ({context}) => {
     !role && (document.location.href = '/login');
     const user = JSON.parse(Cookies.getCookie('user'));
 
+    console.log(role);
+
     return (
         <Admin
             i18nProvider={i18nProvider}

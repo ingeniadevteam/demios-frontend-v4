@@ -9,10 +9,10 @@ import {
 } from '@mui/material';
 import { resolveBrowserLocale } from 'react-admin';
 import { Link } from 'react-router-dom';
-const locale = resolveBrowserLocale();
 
 export const PendingSupplier = (props) => {
     const { supplier } = props;
+    const locale = resolveBrowserLocale();
 
     return (
         <ListItem button component={Link} to={`/suppliers/${supplier.id}`}>

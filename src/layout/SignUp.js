@@ -239,8 +239,8 @@ const SignUp = ({ theme }) => {
                                     fullWidth
                                 >
                                     {
-                                        Object.keys(t[locale].pos.types).map(key => (
-                                            <MenuItem value={key} key={key}>{t[locale].pos.types[key]}</MenuItem>
+                                        Object.keys(t[locale].resources.suppliers.type).map(key => (
+                                            <MenuItem value={key} key={key}>{t[locale].resources.suppliers.type[key]}</MenuItem>
                                         ))
                                     }
                                 </Select>

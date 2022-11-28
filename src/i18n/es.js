@@ -23,13 +23,20 @@ const es = {
             'order': 'Giro',
             'other': 'Otro'
         },
+        days: {
+            D0: '0',
+            D15: '15',
+            D30: '30',
+            D45: '45',
+            D60: '60',
+            D90: '90',
+            D120: '120',
+            D150: '150',
+            D180: '180',
+        },
         bic: 'Cuenta bancaria',
         organization: 'Selecciona la organización *',
         type: '¿Proveedor o Acreedor?',
-        types: {
-            supplier: 'Proveedor',
-            creditor: 'Acreedor'
-        },
         emailInvalid: 'Por favor, introduce un Email válido',
         registered: 'Hemos registrado tu solicitud. Una vez validada, recibirás un correo con el enlace de acceso a Demios.',
         dashboard: {
@@ -83,7 +90,17 @@ const es = {
                 createdAt: 'Creado el',
                 rating: 'Valoración',
                 business: 'Empresa',
-                status: 'Estado'
+                status: 'Estado',
+                paymentMethod: 'Forma de pago',
+                taxid: 'CIF',
+                bic: 'Número de cuenta',
+                days: 'Días',
+                type: 'Tipo',
+                phone: 'Teléfono',
+                organizations: 'Organizaciones',
+                approvedBy: 'Aceptado por',
+                users: 'Usuarios enlazados',
+
             },
             action: {
                 accept: 'Aceptar',
@@ -96,7 +113,11 @@ const es = {
                 pending: 'Pendiente',
                 accepted: 'Aceptado',
                 rejected: 'Rechazado',
-            }
+            },
+            type: {
+                supplier: 'Proveedor',
+                creditor: 'Acreedor'
+            },
         },
         users: {
             name: 'Usuario |||| Usuarios',

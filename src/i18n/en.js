@@ -25,13 +25,20 @@ const en = {
             'order': 'Money order',
             'other': 'Other'
         },
+        days: {
+            D0: '0',
+            D15: '15',
+            D30: '30',
+            D45: '45',
+            D60: '60',
+            D90: '90',
+            D120: '120',
+            D150: '150',
+            D180: '180',
+        },
         bic: 'BIC',
         organization: 'Company *',
         type: 'Supplier or Creditor?',
-        types: {
-            supplier: 'Supplier',
-            creditor: 'Creditor'
-        },
         emailInvalid: 'Invalid Email',
         registered: 'We hve registered your reuqest. Once verified, ee will send you an email with a login link.',
         dashboard: {
@@ -84,7 +91,16 @@ const en = {
                 createdAt: 'Created',
                 rating: 'Rating',
                 business: 'Company',
-                status: 'Status'
+                status: 'Status',
+                paymentMethod: 'Payment Method',
+                taxid: 'TAX ID',
+                bic: 'BIC',
+                days: 'Days',
+                type: 'Type',
+                phone: 'Phone',
+                organizations: 'Organizaciones',
+                approvedBy: 'Approved By',
+                users: 'Users',
             },
             action: {
                 accept: 'Accept',
@@ -97,7 +113,11 @@ const en = {
                 pending: 'Pending',
                 accepted: 'Accepted',
                 rejected: 'Rejected',
-            }
+            },
+            type: {
+                supplier: 'Supplier',
+                creditor: 'Creditor'
+            },
         },
         users: {
             name: 'User |||| Users',
