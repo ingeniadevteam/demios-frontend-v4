@@ -21,6 +21,7 @@ import { SuppliersEditDetails } from './tabs/SuppliersEditDetails';
 import { InvoicesEditDetails } from './tabs/InvoicesEditDetails';
 import { PurchasesEditDetails } from './tabs/PurchasesEditDetails';
 import { TicketsEditDetails } from './tabs/TicketsEditDetails';
+import { IssuesEditDetails } from './tabs/IssuesEditDetails';
 import Organization from './Organization';
 
 const OrganizationTitle = () => {
@@ -33,7 +34,6 @@ const OrganizationEdit = () => (
         <TabbedForm>
             <FormTab
                 label="resources.organizations.tabs.details"
-                sx={{ maxWidth: '40em' }}
             >
                 <Organization />
                 <TextInput source="name" fullWidth validate={req} />
@@ -45,7 +45,6 @@ const OrganizationEdit = () => (
             <FormTab
                 label="resources.organizations.tabs.suppliers"
                 path="suppliers"
-                sx={{ maxWidth: '40em' }}
             >
                 <SuppliersEditDetails />
             </FormTab>
@@ -53,7 +52,6 @@ const OrganizationEdit = () => (
             <FormTab
                 label="resources.organizations.tabs.invoices"
                 path="invoices"
-                sx={{ maxWidth: '40em' }}
             >
                 <InvoicesEditDetails />
             </FormTab>
@@ -71,6 +69,14 @@ const OrganizationEdit = () => (
             >
                 <TicketsEditDetails />
             </FormTab>
+                
+            <FormTab
+                label="resources.users.tabs.issues"
+                path="issues"
+            >
+                <IssuesEditDetails />
+            </FormTab>
+        
         </TabbedForm>
     </Edit>
 );

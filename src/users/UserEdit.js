@@ -18,6 +18,7 @@ import { SuppliersEditDetails } from './tabs/SuppliersEditDetails';
 import { InvoicesEditDetails } from './tabs/InvoicesEditDetails';
 import { PurchasesEditDetails } from './tabs/PurchasesEditDetails';
 import { TicketsEditDetails } from './tabs/TicketsEditDetails';
+import { IssuesEditDetails } from './tabs/IssuesEditDetails';
 import User from './User';
 
 const UserTitle = () => {
@@ -119,6 +120,16 @@ const UserEdit = () => {
                         path="tickets"
                     >
                         <TicketsEditDetails />
+                    </FormTab>
+                }
+
+                {
+                    !record.isSupplier &&
+                    <FormTab
+                        label="resources.users.tabs.issues"
+                        path="issues"
+                    >
+                        <IssuesEditDetails />
                     </FormTab>
                 }
             </TabbedForm>

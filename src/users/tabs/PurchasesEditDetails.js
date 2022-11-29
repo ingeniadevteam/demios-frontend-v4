@@ -10,10 +10,18 @@ export const PurchasesEditDetails = () => {
     return (
         <Grid container columnSpacing={2}>
             <Grid item xs={12} sm={6}>
-                <small>{translate('resources.users.help.purchaseAdmin')}</small>
+                <small>{translate('resources.users.help.orgManager')}</small>
                 <BooleanInput
-                    source="purchaseAdmin"
-                    label="resources.users.fields.purchaseAdmin"
+                    source="orgManager"
+                    label="resources.users.fields.orgManager"
+                    fullWidth
+                />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+                <small>{translate('resources.users.help.purchaseManager')}</small>
+                <BooleanInput
+                    source="purchaseManager"
+                    label="resources.users.fields.purchaseManager"
                     fullWidth
                 />
             </Grid>
@@ -36,5 +44,3 @@ export const PurchasesEditDetails = () => {
         </Grid>
     )
 };
-
-// const req = [required()];

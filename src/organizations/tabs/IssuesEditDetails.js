@@ -9,23 +9,23 @@ import {
 } from 'react-admin';
 import { Grid } from '@mui/material';
 
-export const TicketsEditDetails = () => {
+export const IssuesEditDetails = () => {
     const translate = useTranslate();
     return (
         <Grid container columnSpacing={2}>
             <Grid item xs={12} sm={6}>
                 <Grid item>
-                    <small>{translate('resources.organizations.help.ticketPayerCompanyInvoice')}</small>
+                    <small>{translate('resources.organizations.help.issueOrderManager')}</small>
                 </Grid>
                 <Grid item>
                     <ReferenceInput
                         reference="users"
-                        source="ticketPayerCompanyInvoice"  
-                        label="resources.organizations.fields.ticketPayerCompanyInvoice"
-                        filter={{ ticketPayer: true }}
+                        source="issueOrderManager"  
+                        label="resources.organizations.fields.issueOrderManager"
+                        filter={{ issueManager: true }}
                     >
                         <AutocompleteInput
-                            label="resources.organizations.fields.ticketPayerCompanyInvoice"
+                            label="resources.organizations.fields.issueOrderManager"
                             optionText={choice => choice.name}
                             fullWidth
                         />
@@ -35,17 +35,17 @@ export const TicketsEditDetails = () => {
 
             <Grid item xs={12} sm={6}>
                 <Grid item>
-                    <small>{translate('resources.organizations.help.ticketPayerOther')}</small>
+                    <small>{translate('resources.organizations.help.issueInvoiceRejectedManager')}</small>
                 </Grid>
                 <Grid item>
                     <ReferenceInput
                         reference="users"
-                        source="ticketPayerOther"  
-                        label="resources.organizations.fields.ticketPayerOther"
-                        filter={{ ticketPayer: true }}
+                        source="issueInvoiceRejectedManager"  
+                        label="resources.organizations.fields.issueInvoiceRejectedManager"
+                        filter={{ issueManager: true }}
                     >
                         <AutocompleteInput
-                            label="resources.organizations.fields.ticketPayerOther"
+                            label="resources.organizations.fields.issueInvoiceRejectedManager"
                             optionText={choice => choice.name}
                             fullWidth
                         />
@@ -55,17 +55,17 @@ export const TicketsEditDetails = () => {
 
             <Grid item xs={12} sm={6}>
                 <Grid item>
-                    <small>{translate('resources.organizations.help.ticketRegistrarCompanyInvoice')}</small>
+                    <small>{translate('resources.organizations.help.issuePaymetNotReceivedManager')}</small>
                 </Grid>
                 <Grid item>
                     <ReferenceInput
                         reference="users"
-                        source="ticketRegistrarCompanyInvoice"  
-                        label="resources.organizations.fields.ticketRegistrarCompanyInvoice"
-                        filter={{ ticketRegistrar: true }}
+                        source="issuePaymetNotReceivedManager"  
+                        label="resources.organizations.fields.issuePaymetNotReceivedManager"
+                        filter={{ issueManager: true }}
                     >
                         <AutocompleteInput
-                            label="resources.organizations.fields.ticketRegistrarCompanyInvoice"
+                            label="resources.organizations.fields.issuePaymetNotReceivedManager"
                             optionText={choice => choice.name}
                             fullWidth
                         />
@@ -75,17 +75,17 @@ export const TicketsEditDetails = () => {
 
             <Grid item xs={12} sm={6}>
                 <Grid item>
-                    <small>{translate('resources.organizations.help.ticketRegistrarOther')}</small>
+                    <small>{translate('resources.organizations.help.issueTechnicalManager')}</small>
                 </Grid>
                 <Grid item>
                     <ReferenceInput
                         reference="users"
-                        source="ticketRegistrarOther"  
-                        label="resources.organizations.fields.ticketRegistrarOther"
-                        filter={{ ticketRegistrar: true }}
+                        source="issueTechnicalManager"  
+                        label="resources.organizations.fields.issueTechnicalManager"
+                        filter={{ issueManager: true }}
                     >
                         <AutocompleteInput
-                            label="resources.organizations.fields.ticketRegistrarOther"
+                            label="resources.organizations.fields.issueTechnicalManager"
                             optionText={choice => choice.name}
                             fullWidth
                         />
@@ -95,33 +95,24 @@ export const TicketsEditDetails = () => {
 
             <Grid item xs={12} sm={6}>
                 <Grid item>
-                    <small>{translate('resources.organizations.help.enableValidatorList')}</small>
+                    <small>{translate('resources.organizations.help.issueOtherManager')}</small>
                 </Grid>
                 <Grid item>
-                    <BooleanInput
-                        source="enableValidatorList"
-                        label="resources.organizations.fields.enableValidatorList"
-                        fullWidth
-                    />
-                </Grid>
-            </Grid>
-            <Grid item xs={12} sm={12}>
-                <Grid item>
-                    <small>{translate('resources.organizations.help.validators')}</small>
-                </Grid>
-                <Grid item>
-                    <ReferenceArrayInput
-                        label="resources.organizations.fields.validators"
+                    <ReferenceInput
                         reference="users"
-                        source="validators"
-                        filter={{ ticketValidator: true }}
+                        source="issueOtherManager"  
+                        label="resources.organizations.fields.issueOtherManager"
+                        filter={{ issueManager: true }}
                     >
-                        <AutocompleteArrayInput
+                        <AutocompleteInput
+                            label="resources.organizations.fields.issueOtherManager"
                             optionText={choice => choice.name}
+                            fullWidth
                         />
-                    </ReferenceArrayInput>
+                    </ReferenceInput>
                 </Grid>
             </Grid>
+
         </Grid>
     );
 };

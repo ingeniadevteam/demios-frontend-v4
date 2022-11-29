@@ -16,10 +16,11 @@ import {
     ListToolbar,
     SelectInput,
     ReferenceInput,
-    AutocompleteInput
+    AutocompleteInput,
+    DateField
 } from 'react-admin';
 
-import OrganizationRefField from '../organizations/OrganizationRefField';
+// import OrganizationRefField from '../organizations/OrganizationRefField';
 
 const UserList = () => {
     const getResourceLabel = useGetResourceLabel();
@@ -64,9 +65,10 @@ const UserList = () => {
             <Datagrid
                 rowClick="edit"
             >
+                <DateField source="createdAt" />
                 <TextField source="name" />
                 <TextField source="email" />
-                <OrganizationRefField source="organization" />
+                {/* <OrganizationRefField source="organization" /> */}
                 <FunctionField
                     label="resources.users.fields.role"
                     render={record => translate(`roles.${record.role.type}`)}
